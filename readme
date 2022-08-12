@@ -1,0 +1,28 @@
+1.Purpose
+The proposed framework is implemented mainly in Python in a Linux environment,
+by coupling the SWAT model with the PCE library (Chaospy) and SA library (SALib)
+on the Java-supported Hadoop-based cloud. 
+(1)Chaospy is a numerical toolbox for performing uncertainty quantification
+using non-intrusive PCE and advanced Monte Carlo (MC) methods, and is implemented
+in Python. This toolbox is intended to assist scientists in constructing tailored
+statistical methods by combining many fundamental and advanced building blocks. 
+
+(2)SALib is a Python implementation of commonly used SA methods, including Sobol,
+FAST, the delta moment-independent measure, and the derivative-based global 
+sensitivity measure (DGSM). The Hadoop-based cloud is used to perform the
+computationally expensive SWAT simulations: the Fortran-based SWAT model
+is first compiled in a Linux environment and then wrapped as a MapReduce task. 
+In addition, simulation results can be transferred bidirectionall
+y between the Python and Java components via HTTP requests.
+
+2.Installation
+(1)Hadoop High Availability (HA) cluster is required,version 2.7.5 is preferable. Details
+can be referred to https://hadoop.apache.org/docs/r2.7.5/hadoop-project-dist/hadoop-hdfs
+/HDFSHighAvailabilityWithNFS.html#Deployment
+(2)Anaconda is recommended to host Tornado web server. 
+(3)Tornado is used to accommodate sequential-model-based optimization, for example 
+Bayesian optimization algorithm. Python libraries including numpy, skopt, pandas,
+keras are also required. Details can be referred to souce code of "BayesianOptimizationServer.py"
+(4)SpringBoot is responsible for receiving the candidate points (suggested parameter 
+sets) from Tornado, and then writing a driver program to run these model evaluations
+on the Hadoop cluster.
