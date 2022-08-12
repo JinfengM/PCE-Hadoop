@@ -1,0 +1,27 @@
+# 项目相关配置
+calibrate:
+  # 集群路径-率定目录-默认
+  hdfscalibratepath: /calibrate
+  # 单个job多个taskhdfs文件路径, --默认即可 multihdfs-mirro
+  hdfsfolders: multihdfs
+  # 多个job单个task的hdfs文件路径,多个文件夹，单个文件, --默认即可 multihdfs-1 multihdfs-2 
+  hdfsfolder: singlehdfs
+  # 引擎
+  engine: swat
+  # 率定参数内容 param.txt
+  paramfile: bo_flowout.txt
+  obsfile: flowout.obs
+  # 启动网址-敏感性分析 pythoncreateurl+0,1,2
+  pythoncreateurl: http://172.16.254.80:9999/BOPARAM
+  # 返回网址-敏感性分析 pythonresulturl+0,1,2
+  pythonresulturl: http://172.16.254.80:9999/BORESULT
+  # 场景目录，里边需要包含param文件夹
+  swatlocalfolder: d:/work/calibrate/meijiang
+  # 项目名称(关系到集群运算等)
+  swatprojectname: meijiang
+  # 集群mapred运算包
+  jarfil: c:/jar/calibrate/mapjar.jar
+  # 算法总数-率定 bo
+  algorithms: bo
+  # 场景自动上传 or 手动上传 false=手动上传
+  uploadscene: false

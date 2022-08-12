@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!--
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License. See accompanying LICENSE file.
+-->
+
+<!-- Put site-specific property overrides in this file. -->
+
+<configuration>
+<property>
+<name>dfs.replication</name>
+<value>2</value>
+</property>
+<property> 
+<name>dfs.ha.namenodes.cluster</name> 
+<value>nn1,nn2</value> 
+</property> 
+<property> 
+<name>dfs.nameservices</name> 
+<value>cluster</value> 
+</property> 
+<property> 
+<name>dfs.namenode.rpc-address.cluster.nn1</name> 
+<value>m101:9000</value> 
+</property> 
+<property> 
+<name>dfs.namenode.rpc-address.cluster.nn2</name> 
+<value>m102:9000</value> 
+</property> 
+<property> 
+<name>dfs.namenode.http-address.cluster.nn1</name> 
+<value>m101:50070</value> 
+</property> 
+<property> 
+<name>dfs.namenode.http-address.cluster.nn2</name> 
+<value>m102:50070</value> 
+</property> 
+<property> 
+<name>dfs.namenode.shared.edits.dir</name> 
+<value>qjournal://m101:8485;m102:8485;s201:8485;s202:8485;s203:8485;s204:8485;s205:8485;s206:8485;s207:8485;s208:8485/cluster</value> 
+</property> 
+<property> 
+<name>dfs.journalnode.edits.dir</name> 
+<value>/home/hadoop/struct/hadoop/journal</value> 
+</property>
+<property> 
+<name>dfs.ha.automatic-failover.enabled</name> 
+<value>true</value> 
+</property>
+<property> 
+<name>dfs.client.failover.proxy.provider.cluster</name> 
+<value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value> 
+</property>
+<property> 
+<name>ha.zookeeper.quorum</name> 
+<value>m101:2181,m102:2181,s201:2181,s202:2181,s203:2181,s204:2181,s205:2181,s206:2181,s207:2181,s208:2181</value> 
+</property> 
+<property> 
+<name>ha.zookeeper.session-timeout.ms</name> 
+<value>10000</value> 
+</property>
+<property> 
+<name>dfs.ha.fencing.methods</name> 
+<value>sshfence</value> 
+</property>
+<property> 
+<name>dfs.ha.fencing.ssh.private-key-files</name> 
+<value>/home/hadoop/.ssh/id_rsa</value> 
+</property>
+<property> 
+<name>dfs.ha.fencing.ssh.connect-timeout</name> 
+<value>30000</value> 
+</property> 
+<property>
+<name>dfs.permissions</name>
+<value>false</value>
+</property>
+<property>
+<name>dfs.datanode.max.transfer.threads</name>
+<value>65536</value>
+</property>
+<property>
+<name>dfs.datanode.balance.bandwidthPerSec</name>
+<value>8192</value>
+</property>
+<property>  
+  <name>dfs.datanode.fsdataset.volume.choosing.policy</name>  
+  <value>org.apache.hadoop.hdfs.server.datanode.fsdataset.AvailableSpaceVolumeChoosingPolicy</value>  
+</property> 
+<property>  
+  <name>dfs.datanode.available-space-volume-choosing-policy.balanced-space-threshold</name>  
+  <value>107374182400</value>  
+</property> 
+<property>  
+  <name>dfs.datanode.available-space-volume-choosing-policy.balanced-space-preference-fraction</name>  
+  <value>0.75f</value>  
+</property>
+</configuration>
