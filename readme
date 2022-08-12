@@ -37,3 +37,4 @@ Hadoop-based cloud, to decompose the DOE, convert it to MapReduce tasks, and dis
 multiple computing nodes; (iv) construction of PCE, to conduct SM using DOE; and (v) evaluation 
 of PCE, to assess the approximation capability of PCE in surrogating the original high-fidelity 
 model. The main components of the framework are elaborated in the following subsections. 
+
